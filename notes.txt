@@ -1,0 +1,5 @@
+ docker run -it -p host:other port --rm (deletes if stopped
+docker stop container
+docker kill - stops the container without allowing the processes to exit gracefully
+docker rm removes it from the list of containers)
+dockerfile - copy . means copy everything within the current folder
