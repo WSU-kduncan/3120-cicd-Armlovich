@@ -3,6 +3,7 @@ on:
   push:
     branches: [main]
     workflow-dispatch:
+    tags:
 jobs:
   docker:
     runs-on: ubuntu-22.04
