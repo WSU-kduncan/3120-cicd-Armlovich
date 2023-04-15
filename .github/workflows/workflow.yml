@@ -9,7 +9,7 @@ jobs:
   docker:
     runs-on: ubuntu-22.04
     steps:
-      - uses: action/checkout@v2
+      - uses: actions/checkout@v2
       - name: Collecting tag data
         uses: docker/metadata-action@v4
         id: meta
