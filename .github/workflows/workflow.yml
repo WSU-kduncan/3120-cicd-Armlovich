@@ -9,6 +9,17 @@ jobs:
   docker:
     runs-on: ubuntu-22.04
     steps:
+      - uses: action/checkout@v2
+      - name: Collecting tag data
+        uses: docker/metadata-action@v4
+        id: meta
+        with: 
+          images: |
+            armlovich/s23site
+          tags: |
+            type=semver,pattern={{major}}
+            type=semver,pattern={{major}}.{{minor}}
+
       - 
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -23,18 +34,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_UNAME }}
           password: ${{ secrets.DOCKERHUB_PASS }}
-
-      - 
-        name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: |
-            name/3120-cicd-Armlovich
-          tags: |
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}},{{minor}}
-            type=semver,pattern={{major}}
 
       - 
         name: Build and push
