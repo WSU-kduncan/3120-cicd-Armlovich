@@ -1,0 +1,9 @@
+```mermaid
+   flowchart top down
+      A[deploying] --> B{is it a new verison?};
+      B -- Yes -- C[run restart.sh];
+      B -- No -- D[do not deploy!];
+      C ----> E[engage webhook, depoyed message]
+      D ----> F[engage webhook, no new deployment message]
+```
+
