@@ -54,6 +54,5 @@ jobs:
         name: Send message to webhook on Discord
         uses: armlovich/action-discord-git-webhook@main
         with:
-          webhook_url: ${{ secretes.DISCORD_URL }}
-
+          webhook_url: ${{ secrets.DISCORD_URL }}
 
