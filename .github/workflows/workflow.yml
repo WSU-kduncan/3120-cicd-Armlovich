@@ -39,11 +39,20 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v4
         with:
-                #context: .
+          context: .
+          file: ./Dockerfile
           push: true
-          #tags: ${{ steps.meta.output.tags }}
-          #labels: ${{ steps.meta.output.labels }}
-          tags:
-            v2
-            v1*
+          tags: |
+            ${{ steps.meta.output.tags }}
+            ${{ secrets.DOCKERHUB_UNAME }}/s23site:latest
+
+  webhook:
+    needs: docker
+      runs-on: ubuntu-20.04
+      steps:
+      - 
+        name: Send message to webhook on Discord
+        uses: armlovich/action-discord-git-webhook@main
+        with:
+          webhook_url: ${{ secretes.DISCORD_URL }}
 
