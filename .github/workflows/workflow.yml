@@ -43,5 +43,5 @@ jobs:
           push: true
           #tags: ${{ steps.meta.output.tags }}
           #labels: ${{ steps.meta.output.labels }}
-          tags: v1*
+          tags: v1.1.1
 
