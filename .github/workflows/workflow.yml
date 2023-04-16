@@ -48,8 +48,8 @@ jobs:
 
   webhook:
     needs: docker
-      runs-on: ubuntu-20.04
-      steps:
+    runs-on: ubuntu-20.04
+    steps:
       - 
         name: Send message to webhook on Discord
         uses: armlovich/action-discord-git-webhook@main
